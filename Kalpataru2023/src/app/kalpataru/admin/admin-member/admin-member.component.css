@@ -1,0 +1,59 @@
+.gridborder{
+    border: 2px solid lightslategrey;
+    padding: 5px;
+}
+
+.formContainer{
+    width:280px;
+    padding:15px;
+    background-color: lightsalmon;
+    border:2px solid maroon;
+    border-radius:8px;
+    box-shadow:1px 4px 2px 5px rgba(0,0,0,0.3)
+}
+
+form input{
+    text-align: center;
+    background-color: transparent;
+    width:65%;
+    outline:none;
+    border-radius: 5px;
+    color:white;
+    padding:5px;
+    border:2px solid floralwhite;
+    transition:0.25s;
+}
+
+form select{
+    width:65%;
+    text-align: center;
+    outline:none;
+    background-color: cyan
+}
+
+form input:focus{
+    width:80%;
+    border-radius:18px;
+}
+
+.help-block{
+    color:darkred;
+}
+
+.giveMargin{
+    margin-top: 30px;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+#actionButton:enabled,
+#actionButton[enabled]{
+  border: 1px solid #090606;
+  background-color: #ca8646;
+  color: white;
+}

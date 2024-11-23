@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row giveMargin">
+    <div class="col-sm-5">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="d-flex justify-content-around btn-toolbar">
+            <div><button class="btn btn-success" (click)="addMember()">Add Member</button></div>
+            <div><button class="btn btn-primary" (click)="editMember()">Edit Member</button></div>
+            <div><button class="btn btn-danger" (click)="deleteMember()">Delete Member</button></div>
+          </div>
+          <br>
+          <div *ngIf="form_display" class="formContainer text-center">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <input placeholder="Enter ID" formControlName="id" type="text">
+                <div *ngIf="!loginForm.get('id').valid && loginForm.get('id').touched">
+                  <span *ngIf="loginForm.get('id').errors['invalidUser'] && !loginForm.get('id').errors['required'] &&
+                  loginForm.get('id').dirty" class="help-block">User Id is not authorized</span>
+                  <span *ngIf="loginForm.get('id').errors['required']" class="help-block">User Id is required</span>
+                </div>
+              </div>
+              <br>
+              <div class="form-group">
+                <input placeholder="Enter Password" formControlName="pswd" type="password">
+                <div *ngIf="loginForm.get('pswd').touched && !loginForm.get('pswd').valid">
+                  <span *ngIf="loginForm.get('pswd').errors['required']" class="help-block">Password invalid</span>
+                </div>
+              </div>
+              <br>
+              <div class="form-group" *ngIf="edit_delete">
+                <select list="memberList" formControlName="memberlist" placeholder="enter member name">
+                  <option [value]="member" *ngFor="let member of this.memberservice.fetchNickNames()">{{member}}
+                  </option>
+                </select>
+              </div>
+              <br>
+              <div class="row">
+                <div class="d-flex justify-content-around">
+                  <div class="btn-toolbar" [style.display]="'inline-block'">
+                    <button type="submit" id="actionButton" class="btn btn-default" [disabled]="!loginForm.valid">
+                      {{deleteSwitch ? 'Delete' : (add_edit_switch ? 'Add' : 'Edit')}}</button>
+                    <button type="button" class="btn btn-default" (click)="onCancel()">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 ">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

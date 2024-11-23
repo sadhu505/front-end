@@ -1,0 +1,60 @@
+<div class="row" class="transferClass" *ngIf="!isLoading">
+  <div class="col-sm-12">
+    <form class="form-horizontal" #f="ngForm" (ngSubmit)="onTransferSubmit(f)">
+      <div class="form-group">
+        <div class="row">
+          <label for="" class="control-label col-sm-4">From:</label>
+          <mat-form-field class="col-sm-6">
+            <mat-label>Choose Name</mat-label>
+            <select matNativeControl ngModel autocomplete="off" name="emember" ngModel required #emember="ngModel">
+              <option *ngFor="let emember of memberArray" [value]="emember">
+                {{emember}}
+              </option>
+            </select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label for="" class="control-label col-sm-4">To:</label>
+          <mat-form-field class="col-sm-6">
+            <mat-label>Choose Name</mat-label>
+            <select matNativeControl ngModel required autocomplete="off" name="imember" #imember="ngModel">
+              <option [value]="imember" *ngFor="let imember of memberArray">{{imember}}</option>
+            </select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row form-group">
+        <label for="date" class="control-label col-sm-4">Date</label>
+        <div class="col-sm-6">
+          <input ngModel required bsDatepicker autocomplete="off" name="date" #date="ngModel" type="text"
+            class="form-control">
+          <span *ngIf="date.touched && !date.valid" class="help-block">Date required</span>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <div class="row">
+          <label for="" class="control-label col-sm-4">Amount</label>
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Enter Amount" autocomplete="off" ngModel required name="amount" #amount="ngModel"
+              type="text" pattern="^[1-9]+[0-9]*$">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center p-2 form-group">
+        <div><button class="btn btn-default p-1" [disabled]="!f.valid">Submit</button></div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div class="d-flex justify-content-center" *ngIf="isLoading">
+  <div class="pt-3">
+    <app-loading></app-loading>
+  </div>
+</div>

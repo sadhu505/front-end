@@ -1,0 +1,45 @@
+button{
+    border-radius:8px;
+    padding:10px;
+    text-transform: capitalize;
+    font-size:16px;
+}
+
+td{
+    text-align: center;
+}
+
+.bg-success{
+    background: lightgreen;
+}
+
+.bg-danger{
+    background: red;
+    color:darkblue;
+}
+
+.tableFixHead {
+    overflow-y: auto;
+    max-height: 400px;
+    width: 90%;
+}
+
+.tableFixHead thead tbody{
+   display: inline-block;
+}
+
+thead tr{
+    position: sticky;
+    top: 0;
+}
+
+select, input{
+    text-align: center;
+    border: 1px solid black;
+    outline:none;
+    background-color: hsla(169, 78%, 69%, 0.98);
+    color:black;
+}
+
+
+

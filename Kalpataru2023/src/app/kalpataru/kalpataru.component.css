@@ -1,0 +1,7 @@
+.mainBackground {
+    /* background-image: linear-gradient(to right, lightgray, rgb(178, 165, 98) 70%); */
+    background-color: peachpuff;
+    min-height: 91vh;
+    height: auto;
+}
+

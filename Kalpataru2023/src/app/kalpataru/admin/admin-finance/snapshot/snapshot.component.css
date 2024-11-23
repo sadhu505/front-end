@@ -1,0 +1,16 @@
+input{
+    font-size: 20px;
+}
+
+label{
+    text-transform: capitalize;
+    font-size: 15px;
+}
+
+
+.rowStyle{
+    height:100%;
+    padding:10px;
+    background-image: linear-gradient(to right,lightgreen,cyan 60%,rgba(87, 233, 87, 0.61) 85%);
+    border:2px solid white;
+}

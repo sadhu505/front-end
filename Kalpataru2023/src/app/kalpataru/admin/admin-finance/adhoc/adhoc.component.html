@@ -1,0 +1,22 @@
+<div class="row" *ngIf="adhocSwitch">
+  <div class="col-xs-12">
+    <button 
+    routerLink="adhocincome"    
+    class="btn btn-success" type="button">Adhoc Income?</button>
+    <hr>
+    <button 
+    routerLink="adhocexpenditure"
+    class="btn btn-danger" type="button">Adhoc expenditure?</button>
+  </div>
+</div>
+<div class="row" *ngIf="eventSwitch">
+  <div class="col-xs-12">
+    <button 
+    routerLink="newEventincome"    
+    class="btn btn-success" type="button">Is this a new Event?</button>
+    <hr>
+    <button 
+    routerLink="existingEventincome"
+    class="btn btn-danger" type="button">Is this an existing event?</button>
+  </div>
+</div>

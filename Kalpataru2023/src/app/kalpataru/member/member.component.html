@@ -1,0 +1,17 @@
+<div class="row ">
+  <div class="col-sm-4 ">
+    <div class="row">
+      <div class="col-xs-12">
+        <h4 [style.color]="'maroon'">Search Member:</h4>
+          <input list="memberlist" #member (change)="memberSelected(member.value)">
+          <datalist id="memberlist">
+            <option [value]="member" *ngFor="let member of nickName_list"></option>
+          </datalist>
+      </div>
+    </div> <!--member search-->
+    <br>
+  </div>
+  <div class="col-sm-offset-1 col-sm-7 leftmargin">
+    <router-outlet></router-outlet>
+  </div>
+</div>

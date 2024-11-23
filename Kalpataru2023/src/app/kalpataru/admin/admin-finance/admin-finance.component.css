@@ -1,0 +1,24 @@
+.giveMargin{
+    margin-top:25px;
+    margin-left: 20px;
+}
+
+ul li{
+    margin-top:1em;
+    padding:10px;
+    width:200px;
+    background-color: #7c5707;
+    border-radius:0 8px 8px 0;
+}
+
+ul li:hover{
+    position: relative;
+    left:7px;
+    box-shadow: 3px 3px 3px rgb(15, 198, 15);
+}
+
+li a{
+    text-decoration: none;
+    display:block;
+    color: white;
+}

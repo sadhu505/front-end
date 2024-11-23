@@ -1,0 +1,107 @@
+<div class="container-fluid ">
+  <div class="row background">
+    <br>
+    <h3 class="text-center" [style.color]="'white'" *ngIf="!deleteMode">
+      {{editMode === true ? 'Edit' : 'Add'}} Member Details
+    </h3>
+
+    <div class="row" *ngIf="deleteMode">
+      <div class="col-xs-12">
+        <h2 class="text-center">Deleting Member Details</h2>
+      </div>
+    </div>
+
+    <div class="row text-center" *ngIf="isContinue">
+      <div class="col-xs-2 col-xs-offset-4">
+        <app-loading></app-loading>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="!isContinue">
+      <div class="col-sm-12">
+        <form class="form-horizontal" (ngSubmit)="memberFormSubmit()" [formGroup]="memberForm">
+          <div class="form-group">
+            <div class="row">
+              <label for="name" class="control-label col-sm-4">Name</label>
+              <mat-form-field class="col-sm-6">
+                <input matInput type="text" placeholder="Provide full name" formControlName="name">
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div class="form-group" *ngIf="!editMode">
+            <div class="row">
+              <label for="nick" class="control-label col-sm-4">Daak nam</label>
+              <mat-form-field class="col-sm-6">
+                <input matInput type="text" placeholder="Enter daak naam" formControlName="nick">
+              </mat-form-field>
+            </div>
+            <div class="row" *ngIf="memberForm.get('nick').touched && !memberForm.get('nick').valid">
+              <div class="col-sm-6 col-xs-offset-4">
+                <span class="help-block" *ngIf="memberForm.get('nick').errors['duplicateNick'] && 
+                !memberForm.get('nick').errors['required']">
+                  This NickName already exists. Try another
+                </span>
+              </div>
+
+            </div>
+          </div>
+          <div class="row form-group">
+            <label for="dob" class="control-label col-sm-4">DOB</label>
+            <div class="col-sm-6">
+              <input type="text" bsDatepicker formControlName="dob" class="form-control">
+              <span class="help-block" *ngIf="memberForm.get('dob').touched && !memberForm.get('dob').valid">
+                Date of birth required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <label for="address" class="control-label col-sm-4">Address</label>
+              <mat-form-field class="col-sm-6">
+                <input matInput type="text" formControlName="address" placeholder="Enter Address">
+              </mat-form-field>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label for="qualification" class="control-label col-sm-4">Qualification</label>
+            <mat-form-field class="col-sm-6">
+              <input matInput type="text" formControlName="qualification" placeholder="Enter qualification">
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <label for="mobile" class="control-label col-sm-4">Mobile</label>
+            <mat-form-field class="col-xs-6">
+              <input matInput type="text" formControlName="mobile" placeholder="Enter mobile number">
+            </mat-form-field>
+            <div class="row">
+              <div class="col-xs-offset-4 col-xs-6">
+                <span class="help-block" *ngIf="memberForm.get('mobile').touched && !memberForm.get('mobile').valid">
+                  <span class="help-block" *ngIf="memberForm.get('mobile').errors['pattern'] && 
+                      !memberForm.get('mobile').errors['required']">
+                    Mobile number is invalid.
+                  </span>
+                  <span class="help-block" *ngIf="memberForm.get('mobile').errors['maxlength'] &&
+                      !memberForm.get('mobile').errors['required']">
+                    Mobile number should be 10 digit.
+                  </span>
+                </span>
+              </div>
+            </div>
+
+          </div>
+          <div class="d-flex justify-content-center pb-1 form-group">
+            <div>
+              <!--[disabled]="!memberform.valid"-->
+              <button class="btn" id="actionButton" type="submit" [disabled]="!memberForm.valid">{{editMode === true ? 'Edit' : 'Add'}}
+              </button>&nbsp;
+              <button class="btn" type="button" routerLink="/admin/member">Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

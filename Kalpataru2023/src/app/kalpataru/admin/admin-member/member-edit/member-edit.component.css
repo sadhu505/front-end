@@ -1,0 +1,23 @@
+.help-block,label{
+    color:white;
+}
+
+.background{
+    background-image: linear-gradient(to right,salmon,pink 85%);
+    border-left: 2px solid white;
+    padding-left: 10px;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+#actionButton:enabled,
+#actionButton[enabled]{
+  border: 1px solid #090606;
+  background-color: #ca8646;
+  color: white;
+}

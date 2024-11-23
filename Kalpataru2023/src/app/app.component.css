@@ -1,0 +1,11 @@
+html
+{
+ margin:0px;
+ height:100%;
+ width:100%;
+ background-image:linear-gradient(to right, rgb(158, 101, 139), rgb(178, 165, 98) 85%); 
+ -webkit-background-size:cover;
+ -o-background-size:cover;
+ -moz-background-size:cover;
+ background-size:cover;
+}

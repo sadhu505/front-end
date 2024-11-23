@@ -1,0 +1,25 @@
+<div class="row giveMargin">
+  <div class="col-sm-3">
+    <ul class="nav nav-pills nav-pills-stacked">
+      <li class="nav-link" routerLinkActive="active">
+        <a class="nav-item" routerLink="snapshot">Fund Snapshot</a>
+      </li>
+      <li class="nav-link" routerLinkActive="active">
+        <a class="nav-item" routerLink="adhoc" (click)="adhocEmit()">Income-Expenditure</a>
+      </li>
+      <li class="nav-link" routerLinkActive="active">
+        <a class="nav-item" routerLink="eventincome">Income from Event</a>
+      </li>
+      <li class="nav-link" routerLinkActive="active">
+        <a class="nav-item" routerLink="filter">Filtered Report</a>
+      </li>
+      <li class="nav-link" routerLinkActive="active">
+        <a class="nav-item" routerLink="transfer">Transfer Amount</a>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <div class="col-sm-7 col-sm-offset-1 pt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>

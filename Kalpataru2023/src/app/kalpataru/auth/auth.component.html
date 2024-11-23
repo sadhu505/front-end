@@ -1,0 +1,50 @@
+<div class="row" *ngIf="errorAlert">
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="alert alert-danger">
+      <h4 class="text-center">{{errorAlert}} <span class="close" data-dismiss="alert">X</span></h4>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center" *ngIf="isLoading">
+  <div class="pt-3 ps-2">
+    <app-loading></app-loading>
+  </div>
+</div>
+
+
+<div class="d-flex justify-content-center" *ngIf="!isLoading">
+  <br><br>
+  <div class="mt-4">
+    <form class="form-horizontal" (ngSubmit)="onFormSubmit(authForm)" #authForm="ngForm">
+      <div class="form-group">
+          <mat-form-field class="ms-auto">
+              <input type="email" matInput
+              ngModel
+              name="email"
+              id="email" autocomplete="off"
+              #email="ngModel"
+              placeholder="Email" 
+              required>
+          </mat-form-field>
+      </div>
+      <div class="form-group">
+          <mat-form-field class="ms-auto">
+              <input type="password" matInput
+              ngModel
+              name="password"
+              id="password"
+              #password="ngModel"
+              placeholder="Password" 
+              required
+              minlength="6">
+          </mat-form-field>
+      </div>
+        <div class="form-group">
+            <div class="text-center" >
+              <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">Login</button>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>

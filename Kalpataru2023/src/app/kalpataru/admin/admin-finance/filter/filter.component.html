@@ -1,0 +1,208 @@
+<div class="row" *ngIf="!isLoading">
+  <div class="col-xs-12">
+    <button (click)="onIncomeClick()" mat-raised-button [style.backgroundColor]="'lightgreen'">Income Details</button>
+  </div>
+  <br>
+  <div class="col-xs-12" *ngIf="incomeSwitch">
+    <br>
+    <div class="row">
+      <!-- income Event Filter -->
+      <div class="col-sm-6">
+        <div class="row">
+          <label class="col-sm-4">Event: &nbsp;</label>
+          <select class="col-sm-5" name="event1" [(ngModel)]="incomeEvent">
+            <option *ngFor="let event of eventArray" [value]="event">{{event}}</option>
+          </select>
+        </div>
+      </div>
+      <!-- income Member Filter -->
+      <div class="col-sm-6">
+        <div class="row">
+          <label class="col-sm-4">Member: &nbsp;</label>
+          <select class="col-sm-5" name="member1" [(ngModel)]="incomeMember">
+        <option *ngFor="let member of memberArray" [value]="member">{{member}}</option>
+      </select>
+        </div>
+      </div>
+      
+    </div>
+    <br>
+    <!-- date filter add -->
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="row">
+          <label for="incomeStartDate" class="control-label col-sm-4">Start date:</label>
+          <div class="col-sm-5">
+            <input id="incomeStartDate" class="form-control" autocomplete="off" 
+            bsDatepicker
+            [maxDate]="maxDateValue"
+            [minDate]="minDate"
+            [bsConfig]="{ isAnimated: true, containerClass:'theme-red', dateInputFormat:'DD/MM/YYYY', showWeekNumbers:false}"
+            [(ngModel)]="istartDate"
+              type="text">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <label for="incomeEndDate" class="control-label col-sm-4">End date: &nbsp;</label>
+          <div class="col-sm-5">
+            <input id="incomeEndDate" class="form-control" autocomplete="off" 
+            bsDatepicker [bsValue]="iendDate"
+            [minDate]="minDate"
+            [maxDate]="maxDateValue"
+            [bsConfig]="{ isAnimated: true, containerClass:'theme-red', dateInputFormat:'DD/MM/YYYY', showWeekNumbers:false}"
+            [(ngModel)]="iendDate"
+              type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- income details table -->
+    <div class="tableFixHead">
+      <table class="table table-condensed table-hover table-bordered" cellpadding="1px">
+        <thead>
+          <tr>
+            <td>Collector</td>
+            <td>Date</td>
+            <td>Remarks</td>
+            <td>Event</td>
+            <td>Amount</td>
+            <td>Delete</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of ieMainArray | ieincome:incomeEvent:incomeMember:istartDate:iendDate" class="bg-success">
+            <td>{{item.member}}</td>
+            <td>{{item.date | date}}</td>
+            <td>{{item.remarks}}</td>
+            <td>{{item.event}}</td>
+            <td>{{item.amount}}</td>
+            <td class="text-center" (click)="onDelete(item)"><button type="button" class="btn">x</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- total button -->
+     <br>
+     <div class="row">
+      <div class="col-sm-4">
+        <button mat-button 
+        (click)="calculateTotalIncome()" 
+        [style.backgroundColor]="'lightgreen'">Show Total</button>
+      </div>
+      <div class="col-sm-4">
+        <div class="input-group text-center">
+          <input type="text" disabled [value]="totalIncome" 
+          [style.border]="'none'"
+          class="form-control text-center">
+          <span class="input-group-text">Rs.</span>
+        </div>
+      </div>
+     </div>
+    
+  </div>
+</div>
+<hr>
+<div class="row" *ngIf="!isLoading">
+  <div class="col-xs-12">
+    <button (click)="onExpenditureClick()" mat-raised-button [style.backgroundColor]="'red'">Expenditure
+      Details</button>
+  </div>
+  <br>
+  <div class="col-xs-12" *ngIf="expenditureSwitch">
+    <br>
+    <!-- Expenditure Member filter -->
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="row">
+          <label class="col-sm-4">Member: &nbsp;</label>
+          <select class="col-sm-5" name="expendMember" [(ngModel)]="expendMember">
+            <option *ngFor="let member of memberArray" [value]="member">{{member}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- expenditure start-end date filter -->
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="row">
+          <label for="expendStartDate" class="control-label col-sm-4">Start date:</label>
+          <div class="col-sm-5">
+            <input id="expendStartDate" class="form-control" 
+            bsDatepicker 
+            [minDate]="minDate"
+            [maxDate]="maxDateValue"
+            [bsConfig]="{ isAnimated: true, containerClass:'theme-red', dateInputFormat:'DD/MM/YYYY', showWeekNumbers:false}"
+            autocomplete="off" [(ngModel)]="estartDate"
+              type="text">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <label for="expendEndDate" class="control-label col-sm-4">End date:</label>
+          <div class="col-sm-5">
+            <input id="expendEndDate" class="form-control" autocomplete="off" 
+            bsDatepicker  [bsValue]="eendDate"
+            [minDate]="minDate"
+            [maxDate]="maxDateValue"
+            [bsConfig]="{ isAnimated: true, containerClass:'theme-red', dateInputFormat:'DD/MM/YYYY', showWeekNumbers:false}"
+            [(ngModel)]="eendDate"
+              type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- expenditure details table -->
+    <div class="tableFixHead">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <td>Donor</td>
+            <td>Date</td>
+            <td>Remarks</td>
+            <td>Amount</td>
+            <td>Delete</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of ieMainArray | ieexpend:expendMember:estartDate:eendDate"
+            [style.backgroundColor]="'pink'">
+            <td>{{item.member}}</td>
+            <td>{{item.date | date}}</td>
+            <td>{{item.remarks}}</td>
+            <td>{{item.amount}}</td>
+            <td class="text-center" (click)="onDelete(item)"><button type="button" class="btn">x</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- total expenditure button -->
+    <br>
+    <div class="row">
+     <div class="col-sm-4">
+       <button mat-button [style.backgroundColor]="'red'" 
+        (click)="calculateTotalExpenditure()">Show Total
+      </button>
+     </div>
+      <div class="col-sm-4">
+        <div class="input-group text-center">
+          <input type="text" 
+          [style.border]="'none'"
+          disabled [value]="totalExpenditure" class="form-control text-center">
+          <span class="input-group-text">Rs.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center" *ngIf="isLoading">
+  <div class="pt-3">
+    <app-loading></app-loading>
+  </div>
+</div>

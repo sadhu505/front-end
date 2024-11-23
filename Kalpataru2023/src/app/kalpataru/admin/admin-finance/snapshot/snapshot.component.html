@@ -1,0 +1,28 @@
+<div class="rowStyle">
+  <form class="form-horizontal">
+    <div class="form-group" *ngFor="let item of snapshotArray">
+      <div class="row mx-1 py-1">
+        <label class="control-label col-sm-3 pt-3 ps-4" for="">{{item.name}}</label>
+        <div class="col-sm-8">
+          <div class="input-group text-center">
+            <input type="text" [style.color]="'red'" disabled [value]="item.amount" class="form-control text-center">
+            <span class="input-group-text">Rs.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row mx-1 py-2">
+        <label class="control-label col-sm-3 pt-3 ps-4" for=""><strong>TOTAL</strong></label>
+        <div class="col-sm-8">
+          <div class="input-group text-center">
+            <input type="text" [style.color]="'blue'" disabled [value]="snapTotal" class="form-control text-center">
+            <span class="input-group-text">Rs.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!--<button class="btn-btn-primary" (click)="onSave()">Save on DB</button>-->

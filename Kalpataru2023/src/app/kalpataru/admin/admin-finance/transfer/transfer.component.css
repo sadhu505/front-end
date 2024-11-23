@@ -1,0 +1,24 @@
+button{
+    border:2px solid darkblue;
+    border-radius:8px;
+    padding:10px;
+    text-transform: capitalize;
+    font-size:16px;
+}
+
+.transferClass{
+    background-color: lightskyblue;
+    padding: 0.7rem !important;
+}
+
+input,textarea{
+    outline: none;
+}
+
+.help-block{
+    color: maroon;
+}
+
+select{
+    text-align: center;
+}

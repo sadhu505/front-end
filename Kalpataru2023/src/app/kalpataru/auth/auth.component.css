@@ -1,0 +1,7 @@
+.control-label,.help-block{
+    color:hsla(254,78%,89%,0.98);
+}
+
+input{
+    width: 93%
+}

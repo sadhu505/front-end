@@ -1,0 +1,51 @@
+.income{
+    color: aliceblue;
+    background-color: rgba(64, 162, 64, 0.679);
+}
+
+.expenditure{
+    color: aliceblue;
+    background-color: rgba(186, 49, 49, 0.736);
+}
+
+.eventMode{
+    background-color: lightskyblue;
+}
+
+input,textarea{
+    outline: none;
+    color:black;
+}
+
+.help-block{
+    color: maroon;
+}
+
+#eventadd {
+    height: 8px;
+}
+
+button:enabled,
+button[enabled]{
+    padding:0 7px;
+    background: transparent;
+    border:2px solid darkblue;
+    border-radius:8px;
+    box-shadow:2px 2px 6px rgba(0,0,0,0.56);
+    color:maroon;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #4971cf;
+  background-color: #52b2d8;
+  color: #666666;
+}
+
+.widthControl{
+    width:95%;
+}
+
+select{
+    text-align: center;
+}

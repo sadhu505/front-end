@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2 class="text-center">Member details</h2>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <dl class="dl-horizontal textDecorator" *ngIf="memberObj; else noDetails">
+      <dt>Name</dt>
+        <dd>{{memberObj.name}}</dd>
+      <dt>Address</dt>
+        <dd>{{memberObj.address}}</dd>
+      <dt>DOB</dt>
+        <dd>{{memberObj.dob | date:'fullDate'}}</dd>
+      <dt>Qualification</dt>
+        <dd>{{memberObj.qualification}}</dd>
+      <dt>Age</dt>
+        <dd>{{memberAge}}</dd>
+      <dt>Mobile</dt>
+        <dd [style.color]="'black'">{{memberObj.mobile}}</dd>
+    </dl>
+  </div>
+</div>
+<hr>
+
+<ng-template #noDetails>
+  <h2>Details not available.Please select other member.</h2>
+</ng-template>
