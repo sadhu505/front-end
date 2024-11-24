@@ -55,7 +55,8 @@
           bsDatepicker 
           [minDate]="minDate"
           [maxDate]="maxDate"
-          [bsConfig]="{ isAnimated: true, dateInputFormat:'DD/MM/YYYY', showWeekNumbers:false}"
+          [placement]="'top'"
+          [bsConfig]="{ isAnimated: true, dateInputFormat:'DD/MM/YYYY', showWeekNumbers:false, placement:'top'}"
           autocomplete="off" name="date" #date="ngModel" type="text"
             class="form-control">
           <span *ngIf="date.touched && !date.valid" class="help-block">Date required</span>

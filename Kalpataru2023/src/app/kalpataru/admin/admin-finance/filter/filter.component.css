@@ -21,7 +21,7 @@ td{
 .tableFixHead {
     overflow-y: auto;
     max-height: 400px;
-    width: 90%;
+    width: 102%;
 }
 
 .tableFixHead thead tbody{

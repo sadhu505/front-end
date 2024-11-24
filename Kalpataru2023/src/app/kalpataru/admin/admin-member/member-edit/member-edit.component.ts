@@ -17,12 +17,14 @@ export class MemberEditComponent implements OnInit, OnDestroy {
   editMode=false;
   deleteMode=false;
   memberToBeEdited:string;
+  maxDateValue:Date;
 
   constructor(private route: ActivatedRoute, 
   private router: Router,
   private memberservice:MemberService) { }
 
   ngOnInit() {
+    this.maxDateValue=new Date(new Date().setDate(new Date().getDate()));
     this.route.params.subscribe(
       (params:Params)=>{
         this.deleteMode= params['delete'] != null;

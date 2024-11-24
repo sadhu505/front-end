@@ -22,3 +22,8 @@ li a{
     display:block;
     color: white;
 }
+
+.right-padding {
+    padding-right: 40px;
+}
+

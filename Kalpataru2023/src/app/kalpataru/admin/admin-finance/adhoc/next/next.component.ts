@@ -24,8 +24,8 @@ export class NextComponent implements OnInit {
 
   ngOnInit() {
     
-    this.minDate=new Date(2019,0,1);
-    this.maxDate=new Date(new Date().setDate(new Date().getDate()));;
+    this.minDate=new Date(new Date().setDate(new Date().getDate()-30));
+    this.maxDate=new Date(new Date().setDate(new Date().getDate()));
     this.staticCollectors=this.finservice.fetchStaticCollectors();
     switch(this.route.snapshot.params['next']){
       case 'adhocincome':

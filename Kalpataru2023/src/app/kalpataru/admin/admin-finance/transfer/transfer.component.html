@@ -28,7 +28,12 @@
       <div class="row form-group">
         <label for="date" class="control-label col-sm-4">Date</label>
         <div class="col-sm-6">
-          <input ngModel required bsDatepicker autocomplete="off" name="date" #date="ngModel" type="text"
+          <input ngModel required 
+          bsDatepicker 
+          [minDate]="minDate"
+          [maxDate]="maxDateValue"
+          [bsConfig]="{ isAnimated: true, containerClass:'theme-red', dateInputFormat:'DD/MM/YYYY', showWeekNumbers:false}"
+          autocomplete="off" name="date" #date="ngModel" type="text"
             class="form-control">
           <span *ngIf="date.touched && !date.valid" class="help-block">Date required</span>
         </div>

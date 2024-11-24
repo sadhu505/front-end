@@ -13,11 +13,15 @@ export class TransferComponent implements OnInit {
 
   memberArray: string[] = [];
   isLoading: boolean = false;
+  maxDateValue:Date;
+  minDate:Date;
 
   constructor(private route:ActivatedRoute, private finservice: FinanceService) { }
 
   ngOnInit() {
     this.memberArray = this.finservice.fetchStaticCollectors();
+    this.minDate = new Date(new Date().setDate(new Date().getDate() - 30));
+    this.maxDateValue = new Date(new Date().setDate(new Date().getDate()));
   }
 
 
